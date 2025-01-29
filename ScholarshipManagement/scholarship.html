@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IskolarLink - Scholarship Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scholarshipstyles.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <!-- Logo Section that links to the homepage -->
+        <a href="home.html" class="logo">
+            <img src="IskolarLink Logo.png" alt="IskolarLink Logo" class="logo-img">
+        </a>
+
+        <!-- Navigation links to different sections/pages -->
+        <div>
+            <a href="home.html" onclick="transitionPage(event, 'home.html')">Home</a>
+            <a href="scholarship.html" onclick="transitionPage(event, 'scholarship.html')">Scholarships</a>
+            <a href="home.html#about" id="aboutLink">About Us</a>
+            <a href="home.html#contact" id="contactLink">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <div class="isckolarlink-text">
+                <span>Iskolar</span><span>Link:</span>
+            </div>
+            <div class="empowering-text">Empowering Your Academic Journey</div>
+            
+            <!-- Search bar for searching scholarships -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder='Search "Scholarship"'>
+                <button type="submit" id="searchButton">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Loading message -->
+    <div id="loadingMessage">Loading scholarships...</div>
+
+    <!-- Error message -->
+    <div id="errorMessage" style="display: none;"></div>
+
+    <!-- Section displaying scholarship cards -->
+    <div id="scholarshipCards" class="scholarship-cards">
+        <!-- Scholarship cards will be dynamically inserted here -->
+    </div>
+
+    <!-- No results message -->
+    <div id="noResultsMessage" style="display: none; text-align: center; margin-top: 20px; margin-bottom: 50px;">
+        <p>No scholarships available for "<span id="searchQuery"></span>". Please try a different search.</p>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <h1>Unlock Your Scholarship Potential</h1>
+                <p>Explore and apply for scholarships tailored to your ambitions. Join IskolarLink to shape your future.</p>
+                <button class="contact-button" onclick="window.location.href='home.html#contact';">Contact Us</button>
+                <div class="credits">
+                    <p>© 2025 IskolarLink. All Rights Reserved.</p>
+                    <p>Polytechnic University of the Philippines</p>
+                    <p>College of Computing and Information Sciences</p>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <img src="IskolarLink Logo.png" alt="IskolarLink Logo">
+                    <div class="footer-links">
+                        <p>Team</p>
+                        <p>Case Studies</p>
+                        <p>Publications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scholarshipCards = document.getElementById('scholarshipCards');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput');
+            const noResultsMessage = document.getElementById('noResultsMessage');
+            const searchQuerySpan = document.getElementById('searchQuery');
+
+            let allScholarships = [];
+
+            // Fetch scholarships from the PHP script
+            fetch('backend/get_scholarships.php')
+                .then(response => response.json())
+                .then(data => {
+                    loadingMessage.style.display = 'none';
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    allScholarships = data;
+                    displayScholarships(allScholarships);
+                })
+                .catch(error => {
+                    loadingMessage.style.display = 'none';
+                    errorMessage.textContent = 'Error loading scholarships: ' + error.message;
+                    errorMessage.style.display = 'block';
+                });
+
+            function displayScholarships(scholarships) {
+                scholarshipCards.innerHTML = '';
+                scholarships.forEach(scholarship => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <img src="${escapeHTML(scholarship.image_url || '')}" alt="${escapeHTML(scholarship.title || '')}">
+                        <h3>${escapeHTML(scholarship.title || '')}</h3>
+                        <div class="description-box">
+                            <p>Number of Slots: ${escapeHTML(scholarship.num_slots || 'N/A')} Scholarship Slots</p>
+                            <p>Eligible Course/Branch: ${escapeHTML(scholarship.eligible_courses || 'N/A')}</p>
+                        </div>
+                        <a href="${escapeHTML(scholarship.application_link || '#')}" class="apply-button">APPLY HERE</a>
+                    `;
+                    scholarshipCards.appendChild(card);
+                });
+            }
+
+            function performSearch() {
+                const searchQuery = searchInput.value.toLowerCase();
+                const filteredScholarships = allScholarships.filter(scholarship => 
+                    (scholarship.title || '').toLowerCase().includes(searchQuery) ||
+                    (scholarship.eligible_courses || '').toLowerCase().includes(searchQuery)
+                );
+
+                if (filteredScholarships.length === 0) {
+                    scholarshipCards.style.display = 'none';
+                    noResultsMessage.style.display = 'block';
+                    searchQuerySpan.textContent = searchQuery;
+                } else {
+                    scholarshipCards.style.display = 'flex';
+                    noResultsMessage.style.display = 'none';
+                    displayScholarships(filteredScholarships);
+                }
+            }
+
+            function escapeHTML(str) {
+                if (str === null || str === undefined) {
+                    return '';
+                }
+                return str
+                    .toString()
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+

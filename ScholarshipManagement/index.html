@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUP</title>
+    <link rel="stylesheet" href="loginstyles.css">
+    <style>
+      body {
+        background-image: url("IskolarLink BG.png");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: top center;
+      }
+
+      /* Additional styling for pop-up modal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        text-align: left;
+      }
+
+      .modal-header {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .modal-footer {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .close {
+        color: #fff;
+        background-color: #800000; /* Maroon color */
+        float: right;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        background-color: #a00;
+      }
+
+      /* Justify the text inside the modal */
+      .modal-body {
+        text-align: justify;
+        line-height: 1.6;
+      }
+
+      /* Add space between sections */
+      .modal-body h3 {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      /* Add space between list items */
+      .modal-body li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="webcrumbs">
+      <div class="w-[400px] bg-white shadow-lg rounded-lg p-6 flex flex-col items-center space-y-5"> 
+        <img src="PUP Logo.png" alt="PUP Logo" class="w-[100px] h-[100px] object-contain"/> 
+        <h1 class="text-xl font-title font-bold text-neutral-950">Hi, PUPian!</h1>
+        <p class="text-sm text-neutral-500">⬇️ Please click or tap your destination.</p> 
+        <div class="flex flex-col gap-4 w-full"> 
+          <button 
+            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2" 
+            onclick="window.location.href='student.html'">
+            Student
+          </button>
+          
+          <button 
+            class="bg-red-500 hover:bg-red-600 text-white font-semibold rounded-md py-2" 
+            onclick="window.location.href='admin/admin.html'">
+            Faculty
+          </button>
+          
+          <!-- Removed modal trigger from the entire box and only applied it to the Privacy Policy link -->
+          <a href="#" class="bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md py-2" onclick="openModal('termsModal')">
+            Terms of Use
+          </a>
+          
+          <!-- Only the Privacy Policy link triggers the modal -->
+          <a href="#" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-md py-2" onclick="openModal('privacyPolicyModal')">
+            Privacy Policy
+          </a>
+        </div> 
+        <p class="text-xs text-neutral-500 text-center"> By using this service, you understood and agree to the PUP Online Services  
+            <a href="#" class="text-blue-500 underline" onclick="openModal('termsModal')"> Terms of Use </a>  and  <a href="#" class="text-blue-500 underline" onclick="openModal('privacyPolicyModal')"> Privacy Statement </a>. </p> 
+      </div>
+    </div>
+
+    <!-- Modal for Terms of Use -->
+    <div id="termsModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('termsModal')">&times;</span>
+        <div class="modal-header">
+          TERMS OF USE
+        </div>
+        <div class="modal-body">
+          <p><strong>Effective Date: 2025</strong></p>
+          <p>Welcome to IskolarLink, a platform dedicated to helping Polytechnic University of the Philippines (PUP) Main Campus students access scholarship and financial aid opportunities. By using our website and services, you agree to comply with and be bound by these Terms of Use.</p>
+          
+          <h3>Acceptance of Terms:</h3>
+          <ul>
+            <li>By accessing or using the IskolarLink website (the "Platform"), you agree to be bound by these Terms of Use and our Privacy Policy.</li>
+            <li>If you do not agree with these terms, you are not authorized to use the Platform.</li>
+          </ul>
+          
+          <h3>User Registration:</h3>
+          <ul>
+            <li>You may be required to register an account to access certain features of the Platform.</li>
+            <li>You agree to provide accurate, current, and complete information during the registration process and update your information as necessary.</li>
+            <li>You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account.</li>
+          </ul>
+          
+          <h3>Use of the Platform:</h3>
+          <ul>
+            <li>You agree to use the Platform solely for lawful purposes and in accordance with the guidelines provided.</li>
+            <li>You must not use the Platform in a manner that could damage, disable, or impair the Platform's functionality or interfere with others' use of the Platform.</li>
+            <li>You agree not to attempt to gain unauthorized access to any part of the Platform or the systems connected to it.</li>
+          </ul>
+
+          <h3>Scholarship Information and External Links:</h3>
+          <ul>
+            <li>IskolarLink provides information on available scholarships and financial aid opportunities, including eligibility criteria, deadlines, and links to external application portals.</li>
+            <li>The external links provided through the Platform are for your convenience. We are not responsible for the content, privacy policies, or practices of any external websites or portals.</li>
+            <li>We do not guarantee the accuracy, completeness, or reliability of the scholarship information provided on the Platform or external application links.</li>
+          </ul>
+
+          <h3>Notifications and Alerts:</h3>
+          <ul>
+            <li>IskolarLink may send notifications and alerts to users regarding new scholarship opportunities, approaching deadlines, and updates on application statuses.</li>
+          </ul>
+
+          <h3>Data Privacy and Security:</h3>
+          <ul>
+            <li>We are committed to protecting your privacy and the security of your personal and academic information.</li>
+            <li>All data collected from users will be stored and processed in accordance with our Privacy Policy.</li>
+          </ul>
+
+          <h3>Admin Rights and Responsibilities:</h3>
+          <ul>
+            <li>Administrators of the Platform are responsible for managing user accounts, including creating, editing, or deleting user profiles.</li>
+          </ul>
+
+          <h3>Reporting and Analytics:</h3>
+          <ul>
+            <li>We may collect and analyze data to improve the Platform's functionality and user experience.</li>
+          </ul>
+
+          <h3>Termination of Access:</h3>
+          <ul>
+            <li>We reserve the right to suspend or terminate your access to the Platform at any time, without notice, for any reason, including but not limited to a breach of these Terms of Use.</li>
+          </ul>
+
+          <h3>Limitation of Liability:</h3>
+          <ul>
+            <li>IskolarLink is not responsible for any direct, indirect, incidental, or consequential damages arising from your use of the Platform or any external scholarship links.</li>
+          </ul>
+
+          <h3>Changes to Terms of Use:</h3>
+          <ul>
+            <li>We may revise these Terms of Use at any time. Any changes will be posted on this page, and the effective date will be updated accordingly.</li>
+          </ul>
+
+          <h3>Governing Law:</h3>
+          <ul>
+            <li>These Terms of Use will be governed by and construed in accordance with the laws of the Philippines, without regard to its conflict of law principles.</li>
+          </ul>
+
+          <h3>Contact Us:</h3>
+          <ul>
+            <li>If you have any questions or concerns about these Terms of Use, please contact us.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button onclick="closeModal('termsModal')" class="close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Privacy Policy -->
+    <div id="privacyPolicyModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('privacyPolicyModal')">&times;</span>
+        <div class="modal-header">
+          PRIVACY POLICY
+        </div>
+        <div class="modal-body">
+          <p><strong>Effective Date: 2025</strong></p>
+          <p>At IskolarLink, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you use our platform.</p>
+
+          <h3>Information We Collect:</h3>
+          <ul>
+            <li>We collect personal information such as your name, email address, student ID, and academic details when you register on the Platform.</li>
+            <li>Additionally, we gather usage data related to your interactions with the Platform, including the scholarships you view or apply for.</li>
+          </ul>
+
+          <h3>How We Use Your Information:</h3>
+          <ul>
+            <li>Manage your account and provide personalized services.</li>
+            <li>Enable access to scholarship opportunities and external application portals.</li>
+            <li>Communicate important updates, deadlines, and notifications.</li>
+            <li>Improve the functionality and performance of the Platform.</li>
+          </ul>
+
+          <h3>Data Security:</h3>
+          <ul>
+            <li>We implement security measures, including encryption, to protect your personal information from unauthorized access. However, please be aware that no method of online transmission is 100% secure.</li>
+          </ul>
+
+          <h3>Sharing Your Information:</h3>
+          <ul>
+            <li>We may share your information with third-party service providers who assist in the operation of the Platform, such as hosting services and application systems.</li>
+            <li>We will not sell, trade, or rent your personal information to third parties.</li>
+          </ul>
+
+          <h3>Your Rights:</h3>
+          <ul>
+            <li>You have the right to access, correct, or delete your personal information at any time.</li>
+            <li>If you have any concerns about how we handle your personal information, please contact us.</li>
+          </ul>
+
+          <h3>Changes to Privacy Policy:</h3>
+          <ul>
+            <li>We reserve the right to update this Privacy Policy. Any changes will be posted on this page, with the effective date indicated at the top.</li>
+          </ul>
+
+          <h3>Contact Us:</h3>
+          <ul>
+            <li>If you have any questions or concerns about this Privacy Policy, please contact us.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button onclick="closeModal('privacyPolicyModal')" class="close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+    </script>
+  </body>
+</html>

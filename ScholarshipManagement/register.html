@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IskolarLink - Scholarship Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="registerstyles.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <!-- Logo Section that links to the homepage -->
+        <a href="index.html" class="logo">
+            <img src="IskolarLink Logo.png" alt="IskolarLink Logo" class="logo-img">
+        </a>
+
+        <!-- Navigation links to different sections/pages -->
+        <div>
+            <a href="index.html" id="homeLink" onclick="transitionPage(event, 'index.html')">Home</a>
+            <a href="scholarship.html" id="scholarshipLink"
+                onclick="transitionPage(event, 'scholarship.html')">Scholarships</a>
+            <a href="#about" id="aboutLink" onclick="scrollToSection(event, 'about')">About Us</a>
+            <a href="#contact" id="contactLink" onclick="scrollToSection(event, 'contact')">Contact Us</a>
+            <a href="login.html" id="loginLink" onclick="transitionPage(event, 'login.html')">Login</a>
+            <a href="#register.html" id="registerLink" onclick="transitionPage(event, 'register.html')">Register</a>
+            <a href="admin/admin.html" id="adminLink" onclick="transitionPage(event, 'admin/admin.html')">Admin</a>
+        </div>
+    </nav>
+
+    <!-- Signup form section -->
+    <div class="signup-container">
+        <form class="signup-form" id="signupForm">
+            <h2>Signup to get started</h2>
+
+            <!-- Input fields for user's first name, last name, and student number -->
+            <label for="first-name">First Name <span>*</span></label>
+            <input type="text" id="first-name" name="first-name" placeholder="Enter your First Name" required>
+
+            <label for="last-name">Last Name <span>*</span></label>
+            <input type="text" id="last-name" name="last-name" placeholder="Enter your Last Name" required>
+
+            <label for="student-number">Student Number <span>*</span></label>
+            <input type="text" id="student-number" name="student-number" placeholder="XXXX-XXXXX-MN-X" required>
+
+            <!-- Email input field with validation prompt -->
+            <label for="email">Email Address <span>*</span></label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <p class="input-info">*Please enter a valid email address (e.g., user@example.com).</p>
+
+            <!-- Password and confirm password fields -->
+            <label for="password">Password <span>*</span></label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="confirm-password">Confirm your password <span>*</span></label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"
+                required>
+            <span id="password-error" class="error-message" hidden>Passwords do not match. Please try again.</span>
+
+            <!-- Show password checkbox -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="show-password">
+                <label for="show-password">Show password</label>
+            </div>
+
+            <!-- Submit button for registration -->
+            <button type="submit" class="button">Create an Account</button>
+            
+            <!-- Link for already registered users to login -->
+            <p>Already Registered? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <h1>Unlock Your Scholarship Potential</h1>
+                <p>Explore and apply for scholarships tailored to your ambitions. Join IskolarLink to shape your future.
+                </p>
+                <button class="contact-button" onclick="window.location.href='index.html#contact';">Contact Us</button>
+                <div class="credits">
+                    <p>© 2025 IskolarLink. All Rights Reserved.</p>
+                    <p>Polytechnic University of the Philippines</p>
+                    <p>College of Computing and Information Sciences</p>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <img src="IskolarLink Logo.png" alt="IskolarLink Logo">
+                    <div class="footer-links">
+                        <p>Team</p>
+                        <p>Case Studies</p>
+                        <p>Publications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for functionality -->
+    <script>
+        // Function to display footer when scrolling past a certain point
+        window.onscroll = function () {
+            let footer = document.querySelector("footer");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                footer.style.display = "block";
+            } else {
+                footer.style.display = "none";
+            }
+        };
+
+        // Event listener for scrolling to highlight active links in the navigation
+        window.addEventListener('scroll', function () {
+            let sections = document.querySelectorAll("section");
+            let links = document.querySelectorAll("nav a");
+
+            sections.forEach(function (section) {
+                let rect = section.getBoundingClientRect();
+                let id = section.getAttribute("id");
+                let link = document.querySelector('nav a[href="#' + id + '"]');
+
+                if (rect.top <= 0 && rect.bottom >= 0) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+        });
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("backToTopBtn").style.display = "block";
+            } else {
+                document.getElementById("backToTopBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+        // Transition function for page redirects
+        function transitionPage(event, url) {
+            event.preventDefault();
+            window.location.href = url;
+        }
+
+        // Scroll function for smooth scrolling to sections
+        function scrollToSection(event, sectionId) {
+            event.preventDefault();
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Event listener for form validation and submission
+        document.addEventListener('DOMContentLoaded', function () {
+            const signupForm = document.getElementById('signupForm');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const passwordError = document.getElementById('password-error');
+            const showPasswordCheckbox = document.getElementById('show-password');
+
+            // Show password toggle functionality
+            showPasswordCheckbox.addEventListener('change', function () {
+                const type = this.checked ? 'text' : 'password';
+                passwordInput.type = type;
+                confirmPasswordInput.type = type;
+            });
+
+            // Submit handler for the signup form
+            signupForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    passwordError.hidden = false;
+                    return;
+                }
+
+                passwordError.hidden = true;
+
+                // Create a FormData object containing all the form data
+                const formData = new FormData(signupForm);
+
+                // Send the form data to the server using a POST request
+                fetch('backend/main.php', {
+                    method: 'POST',
+                    body: formData // Attach the form data as the request body
+                })
+                    .then(response => response.json()) // Parse the JSON response from the server
+                    .then(data => {
+                        if (data.success) {
+                            // If the server responds with success, show a success alert
+                            alert('Registration successful! Please log in.');
+                            // Redirect the user to the login page
+                            window.location.href = 'login.html';
+                        } else {
+                            // If the registration fails, show an error alert with the server message
+                            alert(data.message || 'Registration failed. Please try again.');
+                        }
+                    })
+                    .catch(error => {
+                        // Log any errors to the console
+                        console.error('Error:', error);
+                        // Show an error alert in case of a server error
+                        alert('An error occurred. Please try again later.');
+                    });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

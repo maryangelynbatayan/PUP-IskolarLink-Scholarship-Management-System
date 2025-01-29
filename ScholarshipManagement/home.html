@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IskolarLink - Scholarship Management System</title>
+    <link rel="stylesheet" href="homepagestyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#" class="logo">
+            <img src="IskolarLink Logo.png" alt="IskolarLink Logo" class="logo-img">
+        </a>
+        <div>
+            <a href="#home">Home</a>
+            <a href="scholarship.html">Scholarships</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+
+        <div class="profile-dropdown">
+            <div class="profile-icon" id="profileIcon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="dropdown-content" id="profileDropdown">
+                <a href="#" id="editProfileLink">Edit Profile</a>
+                <a href="#" id="signOutLink">Sign Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="content">
+            <div class="isckolarlink-text">
+                <span>Iskolar</span><span>Link:</span>
+            </div>
+            <div class="empowering-text">
+                Empowering Your Academic Journey
+            </div>
+            <!-- Button to Scroll to Scholarships Section -->
+            <button class="button"
+                onclick="document.getElementById('scholarships').scrollIntoView({behavior: 'smooth'});">
+                Explore Scholarships
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Home Section -->
+        <section id="home">
+            <div class="hero" id="features">
+                <h2>Unlock Your Scholarship Potential</h2>
+                <p>Explore and apply for scholarships tailored to your ambitions. Join IskolarLink to shape your future.
+                </p>
+            </div>
+        </section>
+
+    <section id="scholarships" class="scholarship-section">
+        <h2>Featured Scholarships</h2>
+        <div id="scholarship-boxes" class="scholarship-boxes">
+            <!-- Scholarship boxes will be dynamically inserted here -->
+        </div>
+        <div class="view-all-scholarships">
+            <a href="scholarship.html" class="view-all-button">View All Scholarships</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="about-us">
+            <div class="about-text">
+                <h2>ABOUT US</h2>
+                <div class="empowering-text">
+                    Empowering Your Academic Journey
+                </div>
+            </div>
+        </div>
+        <div class="about-description">
+            <p class="empowering-pup-text">Empowering PUP Students Through Scholarship Opportunities</p>
+            <p>IskolarLink, your trusted gateway to scholarship opportunities tailored for the students of the
+                Polytechnic University of the Philippines. Our mission is to empower PUP students by connecting them
+                to a wide range of scholarships that can help lighten their financial burden and support their
+                academic journey.</p>
+        </div>
+    </section>
+</div>
+
+<section class="split-section">
+    <div class="left-image">
+        <img src="PUPAbout.jpg" alt="Scholarship Assistance">
+    </div>
+    <div class="right-text">
+        <h2>At IskolarLink</h2>
+        <p>We understand the challenges students face in pursuing their education. That's why we're committed to
+            providing a platform that offers easy access to reliable scholarship links, application guides, and tips
+            to maximize your chances of securing financial assistance.</p>
+        <p>Whether you're a freshman looking for a head start, an upperclassman striving for academic excellence, or
+            a graduate student aiming to further your studies, our website is here to help you achieve your dreams.
+        </p>
+    </div>
+</section>
+
+<section class="additional-section">
+    <div class="additional-text">
+        <p>Explore our curated list of scholarships, stay updated on application deadlines, and take one step closer
+            to a brighter future. With IskolarLink, opportunities are just a click away!</p>
+    </div>
+    <div class="partner-text">
+        <p>Let us be your partner in making education more accessible and achievable.</p>
+    </div>
+</section>
+
+
+     <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>CONTACT US</h2>
+                <p>Any question or remarks? Just write us a message!</p>
+
+                 <!-- Contact Details -->
+                <div class="contact-details">
+                    <h3>Contact Information</h3>
+                    <p>To better serve you, we request that you complete our feedback form, including your email address
+                        ensures we can respond directly, and providing detailed specifics helps us address your inquiry
+                        more thoroughly.</p>
+
+                    <!-- List of Emails for Contact -->
+                    <div class="email-list">
+                        <div class="email-item"><i class="fas fa-envelope"></i> ayrahpunzel@gmail.com</div>
+                        <div class="email-item"><i class="fas fa-envelope"></i> dantes.meleathegrace.tantay@gmail.com
+                        </div>
+                        <div class="email-item"><i class="fas fa-envelope"></i> kennethgerilla13@gmail.com</div>
+                        <div class="email-item"><i class="fas fa-envelope"></i> kylexdegracia@gmail.com</div>
+                        <div class="email-item"><i class="fas fa-envelope"></i> maryangelynbatayan@gmail.com</div>
+                    </div>
+
+                    <!-- Social Media Icons -->
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <!-- Form Fields -->
+                    <div class="form-group">
+                        <input type="text" name="firstName" placeholder="First Name *" required>
+                        <input type="text" name="lastName" placeholder="Last Name *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email *" required>
+                        <input type="tel" name="phoneNumber" placeholder="Phone Number *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject *" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Write your message..."></textarea>
+                    </div>
+                    <button type="submit" class="send-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <h1>Unlock Your Scholarship Potential</h1>
+                <p>Explore and apply for scholarships tailored to your ambitions. Join IskolarLink to shape your future.
+                </p>
+                <button class="contact-button"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Contact
+                    Us</button>
+                <div class="credits">
+                    <p>© 2025 IskolarLink. All Rights Reserved.</p>
+                    <p>Polytechnic University of the Philippines</p>
+                    <p>College of Computing and Information Sciences</p>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <img src="IskolarLink Logo.png" alt="IskolarLink Logo">
+                    <div class="footer-links">
+                        <p>Team</p>
+                        <p>Case Studies</p>
+                        <p>Publications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">Back to Top</button>
+
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm">
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber" required>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" required></textarea>
+
+                <label for="placeOfBirth">Place of Birth:</label>
+                <input type="text" id="placeOfBirth" name="placeOfBirth" required>
+
+                <label for="profilePic">Profile Picture:</label>
+                <input type="file" id="profilePic" name="profilePic" accept="image/*">
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const profileIcon = document.getElementById('profileIcon');
+            const profileDropdown = document.getElementById('profileDropdown');
+            const editProfileLink = document.getElementById('editProfileLink');
+            const signOutLink = document.getElementById('signOutLink');
+            const modal = document.getElementById('profileModal');
+            const closeBtn = modal.querySelector('.close');
+            const editProfileForm = document.getElementById('editProfileForm');
+            const backToTopBtn = document.getElementById('backToTopBtn');
+
+            const scholarshipBoxes = document.getElementById('scholarship-boxes');
+            let scholarshipsData = []; // Store all scholarships
+
+            profileIcon.addEventListener('click', function () {
+                profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+            });
+
+            editProfileLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+                fetchUserData();
+            });
+
+            closeBtn.addEventListener('click', function () {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function (event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            editProfileForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                updateProfile();
+            });
+
+            signOutLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                signOut();
+            });
+
+            function fetchUserData() {
+                fetch('backend/get_user_data.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('mobileNumber').value = data.contact_number;
+                        document.getElementById('address').value = data.address;
+                        document.getElementById('placeOfBirth').value = data.place_of_birth;
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            function updateProfile() {
+                const formData = new FormData(editProfileForm);
+                fetch('backend/update_profile.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Profile updated successfully');
+                            modal.style.display = 'none';
+                        } else {
+                            alert('Failed to update profile: ' + data.message);
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            function signOut() {
+                fetch('backend/sign_out.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = 'index.html';
+                        } else {
+                            alert('Failed to sign out');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            function fetchScholarships() {
+                fetch('backend/get_scholarships.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            console.error('Error:', data.error);
+                            return;
+                        }
+                        scholarshipsData = data; // Store all scholarship data
+                        displayScholarships(scholarshipsData.slice(0, 4)); // Show only first 4
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            function displayScholarships(scholarships) {
+                const scholarshipBoxes = document.getElementById('scholarship-boxes');
+                scholarshipBoxes.innerHTML = '';
+
+ 
+                scholarships.forEach(scholarship => {
+                    const box = document.createElement('div');
+                    box.className = 'scholarship-box';
+                    box.innerHTML = `
+                        <div class="scholarship-image">
+                            <img src="${scholarship.image_url}" alt="${scholarship.title}">
+                        </div>
+                        <h3>${scholarship.title}</h3>
+                        <p>${scholarship.description}</p>
+                        <a href="${scholarship.application_link}" class="apply-button">Apply Now</a>
+                    `;
+                    scholarshipBoxes.appendChild(box);
+                });
+            }
+
+
+            window.onscroll = function () {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    backToTopBtn.style.display = "block";
+                } else {
+                    backToTopBtn.style.display = "none";
+                }
+            };
+
+            backToTopBtn.onclick = function () {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            };
+
+            fetchScholarships();
+        });
+    </script>
+</body>
+
+</html>

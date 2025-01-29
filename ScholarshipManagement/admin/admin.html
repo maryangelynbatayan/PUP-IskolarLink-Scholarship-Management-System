@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IskolarLink - Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../studentstyles.css">
+</head>
+<body>
+    
+    <section class="login-section">
+        <div class="login-container">
+            <form class="login-form" id="loginForm">
+                <h1>Faculty Login</h1>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required aria-required="true">
+
+                <button type="submit" class="login-button">Login</button>
+
+                <p id="error-message" role="alert" aria-live="assertive" style="color: red; display: none;"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <h1>Unlock Your Scholarship Potential</h1>
+                <p>Explore and apply for scholarships tailored to your ambitions. Join IskolarLink to shape your future.</p>
+                <button class="contact-button" onclick="window.location.href='../index.html#contact';">Contact Us</button>
+                <div class="credits">
+                    <p>© 2025 IskolarLink. All Rights Reserved.</p>
+                    <p>Polytechnic University of the Philippines</p>
+                    <p>College of Computing and Information Sciences</p>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <img src="../IskolarLink Logo.png" alt="IskolarLink Logo">
+                    <div class="footer-links">
+                        <p>Team</p>
+                        <p>Case Studies</p>
+                        <p>Publications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('error-message');
+    
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+    
+            fetch('../backend/admin.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'admindashboard.html';
+                } else {
+                    errorMessage.textContent = data.message;
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorMessage.textContent = 'An error occurred. Please try again.';
+                errorMessage.style.display = 'block';
+            });
+        });
+    });
+
+    function showLoginMessage() {
+    var popup = document.getElementById('popupMessage');
+    popup.style.display = 'block';  
+
+    setTimeout(function() {
+        popup.style.display = 'none';
+    }, 2000);  
+}
+
+
+    
+    </script>
+</body>
+</html>
+

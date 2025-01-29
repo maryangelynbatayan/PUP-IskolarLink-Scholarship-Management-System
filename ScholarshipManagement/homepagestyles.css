@@ -1,0 +1,747 @@
+  /* General Styles */
+  html, body {
+    scroll-behavior: smooth;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    min-height: 100vh;
+    position: relative;
+    background-color: #fff;
+}
+
+/* Text Styles */
+.isckolarlink-text {
+    font-size: 5.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.isckolarlink-text span:nth-child(1) {
+    color: #7d0805;
+}
+
+.isckolarlink-text span:nth-child(2) {
+    color: #d1bf1b;
+}
+
+.empowering-text {
+    font-style: italic;
+    font-size: 1.8rem;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Header Styles */
+header {
+    position: relative;
+    height: 100vh;
+    background-image: url("IskolarLink BG.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 215px;
+    padding-top: 50px;
+    color: white;
+}
+
+header .content {
+    position: absolute;
+    bottom: 160px;
+    left: 230px;
+    color: white;
+    text-align: left;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: bold;
+    color: #fff;
+}
+
+header .logo {
+    margin-bottom: 1px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+header .logo-img {
+    height: 60px;
+    width: auto;
+}
+
+header .logo:hover {
+    transform: scale(1.1);
+}
+
+header .button {
+    background-color: #660000;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    align-items: center;
+    background-color: rgba(128, 0, 0, 0.8);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    margin-right: 555px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+nav .logo:hover {
+    transform: scale(1.1);
+}
+
+nav .logo-img {
+    height: 60px;
+    width: auto;
+}
+
+nav div {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+nav a.active {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    color: #b15555;
+}
+
+nav a:hover {
+    color: #b15555;
+}
+
+/* Profile Dropdown Styles */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 480px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #660000;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#editProfileForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#editProfileForm label {
+    margin-top: 10px;
+}
+
+#editProfileForm input,
+#editProfileForm textarea {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#editProfileForm button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #660000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#editProfileForm button:hover {
+    background-color: #b15555;
+}
+
+/* About Us Section */
+#about{
+    background-image: white;
+    padding-top: 1px;
+}
+
+.about-us {
+    background-image: url('IskolarLink BG.png');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #660000;
+    text-align: center;
+    
+}
+
+.about-us .about-text h2 {
+    font-size: 10rem; 
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.1rem;
+    text-align: center;
+    padding: 3rem;
+    padding-bottom: 0rem;
+}
+
+.about-us .empowering-text {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    color: black;
+}
+
+.about-description p {
+    font-size: 1.3rem;
+    color: black;
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.about-text {
+    text-align: left;
+    color: black;
+    flex: 1; /* Flexbox behavior to take up available space */
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.about-description {
+    font-size: 1.2rem;
+    color: maroon;
+    text-align: justify;
+    margin-top: 2rem;
+}
+
+.about-description .empowering-pup-text {
+    font-size: 1.5rem;
+    color: #660000; 
+    font-weight: bold;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    text-align: center; 
+}
+
+.about-description p {
+    line-height: 1.6; /* Set line height for better readability */
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.split-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: auto; 
+    margin-bottom: 3rem;
+}
+
+.split-section .left-image {
+    flex: 1;
+    overflow: hidden;
+}
+
+.split-section .left-image img {
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+    display: block;
+}
+
+.split-section .right-text {
+    flex: 1;
+    background-color: maroon;
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.split-section .right-text h2 {
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.split-section .right-text p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    line-height: 1.6; 
+    text-align: justify;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+}
+
+.additional-section {
+    background-color: white;
+    text-align: center;
+    margin-top: 1rem; 
+    padding-top: 1rem;
+    padding-bottom: 3.5rem;
+}
+
+.additional-section .additional-text p,
+.additional-section .partner-text p {
+    font-size: 1.5rem;
+    color: #660000;
+    font-weight: bold;
+    margin-bottom: 1rem; 
+}
+
+.additional-section .additional-text p {
+    font-size: 1.8rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+
+.additional-section .partner-text p {
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: #333;
+    padding-top: 1.2rem;
+}
+
+/* Container padding */
+.container {
+    padding: 20px;
+}
+
+.hero {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #800000;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Scholarship section styling */
+.scholarship-section {
+    padding: 2rem;
+    font-size: 1.6rem;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.scholarship-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.scholarship-box {
+    background-color: #800000;
+    padding: 1.5rem;
+    width: calc(33.33% - 1rem);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    color: white;
+}
+
+.scholarship-box:hover {
+    transform: scale(1.05);
+}
+
+.scholarship-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.scholarship-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.scholarship-box:hover .scholarship-image img {
+    transform: scale(1.1);
+}
+
+.scholarship-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.scholarship-box p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.apply-button {
+    display: inline-block;
+    background-color: white;
+    color: #800000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.apply-button:hover {
+    background-color: #b15555;
+    color: white;
+}
+
+.view-all-scholarships {
+    margin-top: 3rem;
+}
+
+.view-all-button {
+    display: inline-block;
+    background-color: #800000;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-button:hover {
+    background-color: #b15555;
+}
+
+/* Contact section styling */
+#contact {
+    background-image: url("IskolarLink BG.png");
+    background-size: cover;
+    background-attachment: fixed;
+    color: #660000;
+    padding: 4rem 0;
+    min-height: 100vh;
+    padding-top: 120px;
+}
+
+.contact-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contact-info {
+    flex: 1;
+    background-color: #660000;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.contact-details {
+    text-align: left;
+}
+
+.contact-details h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.email-list {
+    margin-bottom: 2rem;
+}
+
+.email-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.email-item i {
+    margin-right: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 1rem;
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+}
+
+.contact-form {
+    flex: 1;
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.send-button {
+    background-color: #660000;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #660000;
+}
+
+/* Footer section styling */
+footer {
+    background-color: maroon;
+    color: white;
+    padding: 4rem 0;
+    padding-left: 40px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-top {
+    margin-bottom: 2rem;
+}
+
+.footer-top h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.footer-top p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.contact-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 1.2rem 3rem;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, background-color 0.1s ease;
+}
+
+.contact-button:hover {
+    transform: scale(1.06);
+}
+
+.credits p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin: 0.2rem 0;
+    margin-top: 0;
+    color: rgb(245, 243, 243);
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid white;
+    margin: 2rem 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2.5rem 0;
+}
+
+.footer-left {
+    text-align: center;
+}
+
+.footer-left img {
+    height: 100px;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.footer-links p {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+/* Back to top button styling */
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #660000;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+#backToTopBtn:hover {
+    background-color: #555;
+}

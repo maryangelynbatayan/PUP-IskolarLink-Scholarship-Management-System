@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IskolarLink - Scholarship Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="studentstyles.css">
+</head>
+
+<body>
+
+    <!-- Login Section -->
+    <section class="login-section"></section>
+
+    <!-- Main Login Form -->
+    <div class="login-container">
+        <form class="login-form" id="loginForm">
+            <h1>Student</h1>
+            <p>Welcome Back!</p>
+
+            <!-- Input fields for email, student number, and password -->
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="student-number">Student Number</label>
+            <input type="text" id="student-number" name="student-number" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <!-- Link for users who forgot their password -->
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <button type="submit" class="login-button">Continue</button>
+
+            <!-- Error message for incorrect credentials -->
+            <p id="error-message" style="color: red; display: none;">Incorrect email, student number, or password.</p>
+
+        </form>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <h1>Unlock Your Scholarship Potential</h1>
+                <p>Explore and apply for scholarships tailored to your ambitions. Join IskolarLink to shape your future.
+                </p>
+                <button class="contact-button" onclick="window.location.href='index.html#contact';">Contact Us</button>
+                <div class="credits">
+                    <p>© 2025 IskolarLink. All Rights Reserved.</p>
+                    <p>Polytechnic University of the Philippines</p>
+                    <p>College of Computing and Information Sciences</p>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <img src="IskolarLink Logo.png" alt="IskolarLink Logo">
+                    <div class="footer-links">
+                        <p>Team</p>
+                        <p>Case Studies</p>
+                        <p>Publications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript file for interactivity -->
+    <script>
+        function transitionPage(event, url) {
+            event.preventDefault();
+            window.location.href = url;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('loginForm');
+            const errorMessage = document.getElementById('error-message');
+
+            loginForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const email = document.getElementById('email').value.trim();
+                const studentNumber = document.getElementById('student-number').value.trim();
+                const password = document.getElementById('password').value;
+
+                if (!email || !studentNumber || !password) {
+                    errorMessage.textContent = 'Please fill in all fields.';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+
+                fetch('backend/main.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `email=${encodeURIComponent(email)}&student-number=${encodeURIComponent(studentNumber)}&password=${encodeURIComponent(password)}`
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = 'Home.html';
+                        } else {
+                            errorMessage.textContent = data.message || 'Invalid email, student number, or password.';
+                            errorMessage.style.display = 'block';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        errorMessage.textContent = 'An error occurred. Please try again later.';
+                        errorMessage.style.display = 'block';
+                    });
+            });
+        });
+
+        function showLoginMessage() {
+            var popup = document.getElementById('popupMessage');
+            popup.style.display = 'block';
+
+            setTimeout(function () {
+                popup.style.display = 'none';
+            }, 2000);
+        }
+
+
+    </script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
